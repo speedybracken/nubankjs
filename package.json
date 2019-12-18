@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "ts-mocha -p tsconfig.json src/**/*.test.ts --timeout 10000",
+    "test": "ts-mocha -p tsconfig.json lib/**/*.test.ts --timeout 10000",
     "deploy": "git pull && vpdate && git push && npm publish --access public"
   },
   "repository": {
@@ -14,16 +14,16 @@
   },
   "keywords": [],
   "contributors": [
-		{
-			"name": "Guilherme Mota Bromonschenkel Lima",
-			"email": "guilhermebromonschenkel@gmail.com",
-			"url": "https://github.com/guilhermebkel"
-		},
-		{
-			"name": "Lucas Coutinho de Oliveira",
-			"email": "coutlcdo@outlook.com"
-		}
-	],
+    {
+      "name": "Guilherme Mota Bromonschenkel Lima",
+      "email": "guilhermebromonschenkel@gmail.com",
+      "url": "https://github.com/guilhermebkel"
+    },
+    {
+      "name": "Lucas Coutinho de Oliveira",
+      "email": "coutlcdo@outlook.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/speedybracken/nubankjs/issues"
@@ -38,5 +38,8 @@
     "ts-mocha": "^6.0.0",
     "typescript": "^3.7.2",
     "vpdate": "^0.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
   }
 }
