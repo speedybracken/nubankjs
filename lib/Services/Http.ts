@@ -13,8 +13,6 @@ class HttpService {
 		await this.setupAppUrlList()
 		this.setupHttpInstance()
 		this.setupRequestInterceptors()
-
-		return this.http
 	}
 
 	private async setupUrlList() {
@@ -63,6 +61,10 @@ class HttpService {
 
 	get appUrl() {
 		return this.appUrlList
+	}
+
+	get api() {
+		return this.http
 	}
 }
 
