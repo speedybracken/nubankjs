@@ -13,6 +13,8 @@ class HttpService {
 		await this.setupAppUrlList()
 		this.setupHttpInstance()
 		this.setupRequestInterceptors()
+
+		return this.http
 	}
 
 	private async setupUrlList() {
