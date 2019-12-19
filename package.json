@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "ts-mocha -p tsconfig.json lib/**/*.test.ts --timeout 10000",
-    "deploy": "git pull && vpdate && git push && npm publish --access public"
+    "deploy": "git pull && vpdate && git push"
   },
   "repository": {
     "type": "git",
