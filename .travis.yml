@@ -8,7 +8,8 @@ script:
   - npm test
   - npm run build
 deploy:
-  provider: npm
+	provider: npm
+	email: guilhermebromonschenkel@gmail.com
   skip_cleanup: true
   api_key: $NPM_API_KEY
   local_dir: build
