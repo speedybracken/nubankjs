@@ -1,6 +1,6 @@
 {
   "name": "nubankjs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Get in touch with Nubank API in a simple way",
   "main": "index.js",
   "scripts": {
