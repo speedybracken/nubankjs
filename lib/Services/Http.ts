@@ -8,6 +8,11 @@ class HttpService {
 	private http: AxiosInstance
 	private _token: string
 
+	constructor() {
+		this.setupUrlList = this.setupUrlList.bind(this)
+		this.setupAppUrlList = this.setupAppUrlList.bind(this)
+	}
+
 	async start() {
 		await this.setupUrlList()
 		await this.setupAppUrlList()
@@ -15,31 +20,31 @@ class HttpService {
 		this.setupRequestInterceptors()
 	}
 
-	private async setupUrlList() {
-		try {
-			const url = "https://prod-s0-webapp-proxy.nubank.com.br/api/discovery"
-			const { data } = await axios.get(url)
+	async setupUrlList() {
+		const url = "https://prod-s0-webapp-proxy.nubank.com.br/api/discovery"
+		const { data } = await axios.get(url)
 
-			this.urlList = data
-		} catch(error) {
-			Promise.reject(`[nubankjs] Error when trying to get url list: ${error}`)
+		if (!data) {
+			return Promise.reject(new Error("[nubankjs] Error when trying to get url list"))
 		}
+
+		this.urlList = data
 	}
 
-	private async setupAppUrlList() {
-		try {
-			const url = "https://prod-s0-webapp-proxy.nubank.com.br/api/app/discovery"
-			const { data } = await axios.get(url)
+	async setupAppUrlList() {
+		const url = "https://prod-s0-webapp-proxy.nubank.com.br/api/app/discovery"
+		const { data } = await axios.get(url)
 
-			this.urlList = data
-		} catch(error) {
-			Promise.reject(`[nubankjs] Error when trying to get app url list: ${error}`)
+		if (!data) {
+			return Promise.reject(new Error("[nubankjs] Error when trying to get app url list"))
 		}
+
+		this.appUrlList = data
 	}
 
 	private setupRequestInterceptors() {
 		this.http.interceptors.request.use(async (config: AxiosRequestConfig) => {
-			config.headers  = {
+			config.headers = {
 				Authorization: `Bearer ${this._token}`
 			}
 
